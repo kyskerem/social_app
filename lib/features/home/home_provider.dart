@@ -24,8 +24,7 @@ class HomeProvider extends StateNotifier<HomeState> {
           FirebaseProps.datePublished.value,
           descending: true,
         )
-        .get()
-        .asStream();
+        .snapshots();
 
     return snapshot;
   }

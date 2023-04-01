@@ -31,8 +31,8 @@ class _ProfileViewState extends ConsumerState<ProfileView>
     return ProfileProvider();
   });
 
-  late final Future<QuerySnapshot<Post?>> likedPosts;
-  late final Future<QuerySnapshot<Post?>> uploadedPosts;
+  late final Stream<QuerySnapshot<Post?>> likedPosts;
+  late final Stream<QuerySnapshot<Post?>> uploadedPosts;
   late final String photo;
   late final String userName;
   late final String uid;

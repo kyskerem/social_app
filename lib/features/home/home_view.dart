@@ -39,31 +39,24 @@ class _HomeViewState extends ConsumerState<HomeView> {
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
+                  return const Text(StringConstants.noConnection);
                 case ConnectionState.waiting:
-                case ConnectionState.active:
-                  return const Center(child: CircularProgressIndicator());
                 case ConnectionState.done:
+                  return const Center(child: CircularProgressIndicator());
+                case ConnectionState.active:
                   if (snapshot.hasData) {
-                    return Column(
-                      children: [
-                        Expanded(
-                          flex: 10,
-                          child: ListView.separated(
-                            separatorBuilder: (context, index) =>
-                                const Divider(),
-                            itemCount: snapshot.data?.docs.length ?? 0,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: context.onlyTopPaddingNormal,
-                                child: PostCard(
-                                  index: index,
-                                  posts: snapshot.data?.docs,
-                                ),
-                              );
-                            },
+                    final data = snapshot.data;
+                    return ListView.separated(
+                      separatorBuilder: (context, index) => const Divider(),
+                      itemCount: data?.docs.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: context.onlyTopPaddingNormal,
+                          child: PostCard(
+                            post: data?.docs[index].data(),
                           ),
-                        ),
-                      ],
+                        );
+                      },
                     );
                   } else {
                     return Center(

@@ -16,6 +16,7 @@ class StringConstants {
   static const noConnection = 'No Connection';
   static const noPosts = 'No Posts';
   static const noNullUser = 'User can not be null';
+  static const noNullPost = 'Post can not be null';
   static const versionNotFound = 'Version not found';
   static const userIsntCorrectType = 'User type is not correct';
   static const onlyAndroindAndIos =

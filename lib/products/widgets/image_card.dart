@@ -18,7 +18,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (post == null) {
-      throw const FbCustomException(error: 'post can not be null');
+      throw const FbCustomException(error: StringConstants.noNullPost);
     }
     return Container(
       margin: context.horizontalPaddingMedium,

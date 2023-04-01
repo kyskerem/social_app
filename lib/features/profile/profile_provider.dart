@@ -9,11 +9,11 @@ import 'package:social_app/products/utility/firebase/firebase_collections.dart';
 class ProfileProvider extends StateNotifier<ProfileState> {
   ProfileProvider() : super(const ProfileState());
 
-  Future<QuerySnapshot<Post?>> fetchLikedPosts(
+  Stream<QuerySnapshot<Post?>> fetchLikedPosts(
     String? uid,
     String photoURL,
     String displayName,
-  ) async {
+  ) {
     return FirebaseColletions.Posts.reference.where(
       FirebaseProps.likes.value,
       arrayContains: {
@@ -28,11 +28,13 @@ class ProfileProvider extends StateNotifier<ProfileState> {
       toFirestore: (value, options) {
         return value.toMap(value);
       },
-    ).get();
+    ).snapshots();
   }
 
-  Future<QuerySnapshot<Post?>> fetchUploadedPosts(String? publisherUid) async {
-    final posts = await FirebaseColletions.Posts.reference
+  Stream<QuerySnapshot<Post?>> fetchUploadedPosts(
+    String? publisherUid,
+  ) {
+    final posts = FirebaseColletions.Posts.reference
         .where(FirebaseProps.publisherUid.value, isEqualTo: publisherUid)
         .withConverter<Post>(
       fromFirestore: (snapshot, options) {
@@ -41,7 +43,7 @@ class ProfileProvider extends StateNotifier<ProfileState> {
       toFirestore: (value, options) {
         return value.toMap(value);
       },
-    ).get();
+    ).snapshots();
 
     return posts;
   }

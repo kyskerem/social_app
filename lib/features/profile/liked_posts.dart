@@ -8,21 +8,19 @@ import 'package:social_app/products/widgets/image_card.dart';
 
 class LikedPosts extends StatelessWidget {
   const LikedPosts({required this.posts, super.key});
-  final Future<QuerySnapshot<Post?>> posts;
+  final Stream<QuerySnapshot<Post?>> posts;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FutureBuilder(
-          future: posts,
+        child: StreamBuilder(
+          stream: posts,
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
                 return const Text(StringConstants.noConnection);
               case ConnectionState.waiting:
               case ConnectionState.active:
-                return const CircularProgressIndicator();
-              case ConnectionState.done:
                 if (snapshot.hasData) {
                   return ListView.builder(
                     itemCount: snapshot.data?.size,
@@ -42,6 +40,8 @@ class LikedPosts extends StatelessWidget {
                 } else {
                   return const Text(StringConstants.noPosts);
                 }
+              case ConnectionState.done:
+                return const CircularProgressIndicator();
             }
           },
         ),
