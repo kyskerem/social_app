@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
 import 'package:social_app/features/auth/authentication_providers.dart';
-
 import 'package:social_app/navigation_view.dart';
 
 class AuthenticationView extends ConsumerStatefulWidget {

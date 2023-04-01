@@ -30,6 +30,7 @@ class PostCommentsView extends StatelessWidget {
             padding: context.verticalPaddingLow,
             child: ListTile(
               leading: ProfilePhoto(
+                redirect: true,
                 profilePhotoUrl: post?.comments
                     ?.elementAt(index)[FirebaseProps.photoURL.value] as String,
                 profileUid: post?.comments

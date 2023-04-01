@@ -24,6 +24,7 @@ class PostCard extends StatelessWidget {
             leading: ProfilePhoto(
               profilePhotoUrl: post!.publisherProfileImage,
               profileUid: post!.publisherUid,
+              redirect: true,
             ),
             title: Text(
               post!.publisherName,

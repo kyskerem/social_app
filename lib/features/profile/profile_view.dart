@@ -45,27 +45,19 @@ class _ProfileViewState extends ConsumerState<ProfileView>
       photo = widget.user.photoURL as String;
       userName = widget.user.displayName as String;
       uid = widget.user.uid as String;
-      likedPosts = ref.read(profileProvider.notifier).fetchLikedPosts(
-            uid,
-            photo,
-            userName,
-          );
-      uploadedPosts =
-          ref.read(profileProvider.notifier).fetchUploadedPosts(uid);
     } else if (widget.user is Map) {
       photo = widget.user[FirebaseProps.photoURL.value] as String;
       userName = widget.user[FirebaseProps.displayName.value] as String;
       uid = widget.user[FirebaseProps.uid.value] as String;
-      likedPosts = ref.read(profileProvider.notifier).fetchLikedPosts(
-            uid,
-            photo,
-            userName,
-          );
-      uploadedPosts =
-          ref.read(profileProvider.notifier).fetchUploadedPosts(uid);
     } else {
       throw const FbCustomException(error: StringConstants.userIsntCorrectType);
     }
+    likedPosts = ref.read(profileProvider.notifier).fetchLikedPosts(
+          uid,
+          photo,
+          userName,
+        );
+    uploadedPosts = ref.read(profileProvider.notifier).fetchUploadedPosts(uid);
   }
 
   @override
@@ -80,6 +72,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
               spacing: 20,
               children: [
                 ProfilePhoto(
+                  redirect: false,
                   profilePhotoUrl: photo,
                   profileUid: uid,
                 ),

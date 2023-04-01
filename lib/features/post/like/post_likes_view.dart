@@ -23,6 +23,7 @@ class PostLikesView extends StatelessWidget {
           itemBuilder: (context, index) {
             return ListTile(
               leading: ProfilePhoto(
+                redirect: true,
                 profilePhotoUrl: likes
                     ?.elementAt(index)[FirebaseProps.photoURL.value] as String,
                 profileUid:
