@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, strict_raw_type
+// ignore_for_file: public_member_api_docs, sort_constructors_first, strict_raw_type, lines_longer_than_80_chars
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';

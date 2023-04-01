@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:social_app/products/utility/base/base_id_model.dart';
+
 part 'number_model.g.dart';
 
 @JsonSerializable()
