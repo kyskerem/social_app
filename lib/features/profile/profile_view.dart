@@ -36,6 +36,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
   late final String photo;
   late final String userName;
   late final String uid;
+
   @override
   void initState() {
     super.initState();
@@ -94,7 +95,10 @@ class _ProfileViewState extends ConsumerState<ProfileView>
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  UploadedPosts(posts: uploadedPosts),
+                  UploadedPosts(
+                    deletePost: ref.read(profileProvider.notifier).deletePost,
+                    posts: uploadedPosts,
+                  ),
                   LikedPosts(posts: likedPosts),
                 ],
               ),
