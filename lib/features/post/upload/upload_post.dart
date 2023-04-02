@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:social_app/products/models/post_model.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/products/utility/firebase/firebase_collections.dart';
 import 'package:social_app/products/utility/firebase/firebase_storages.dart';
 import 'package:uuid/uuid.dart';

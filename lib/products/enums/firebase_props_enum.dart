@@ -6,8 +6,11 @@ enum FirebaseProps {
   photoURL('photoURL'),
   postId('postId'),
   id('id'),
+  email('email'),
   comment('comment'),
-  datePublished('datePublished');
+  datePublished('datePublished'),
+  creationTime('creationTime'),
+  lastSignInTime('lastSignInTime');
 
   final String value;
   const FirebaseProps(this.value);

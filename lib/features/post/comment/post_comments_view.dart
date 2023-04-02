@@ -4,11 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kartal/kartal.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/features/post/comment/comment_provider.dart';
 import 'package:social_app/products/constants/string_constants.dart';
 import 'package:social_app/products/enums/firebase_props_enum.dart';
 import 'package:social_app/products/enums/image/image.dart';
-import 'package:social_app/products/models/post_model.dart';
 import 'package:social_app/products/widgets/profile_photo.dart';
 
 class PostCommentsView extends StatelessWidget {

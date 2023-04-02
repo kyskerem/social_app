@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/products/constants/index.dart';
-import 'package:social_app/products/models/post_model.dart';
 import 'package:social_app/products/widgets/image_card.dart';
 import 'package:social_app/products/widgets/profile_photo.dart';
 

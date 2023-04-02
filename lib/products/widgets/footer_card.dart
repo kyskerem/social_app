@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kartal/kartal.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/features/post/detail/post_details_view.dart';
 import 'package:social_app/features/post/like/like_post.dart';
 import 'package:social_app/products/constants/index.dart';
 import 'package:social_app/products/enums/image/image.dart';
-import 'package:social_app/products/models/post_model.dart';
 import 'package:social_app/products/utility/exceptions/firebase_exception.dart';
 
 class FooterCard extends StatelessWidget {

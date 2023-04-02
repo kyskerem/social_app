@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/products/constants/index.dart';
-import 'package:social_app/products/models/post_model.dart';
-
 import 'package:social_app/products/widgets/post_card.dart';
 
 class LikedPosts extends StatelessWidget {

@@ -5,12 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/features/profile/liked_posts.dart';
 import 'package:social_app/features/profile/profile_provider.dart';
 import 'package:social_app/features/profile/uploaded_posts.dart';
 import 'package:social_app/products/constants/string_constants.dart';
 import 'package:social_app/products/enums/firebase_props_enum.dart';
-import 'package:social_app/products/models/post_model.dart';
 import 'package:social_app/products/utility/exceptions/firebase_exception.dart';
 import 'package:social_app/products/widgets/profile_photo.dart';
 

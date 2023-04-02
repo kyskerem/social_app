@@ -5,9 +5,10 @@ import 'package:social_app/features/post/detail/post_details_view.dart';
 import 'package:social_app/features/post/like/like_post.dart';
 import 'package:social_app/products/constants/string_constants.dart';
 import 'package:social_app/products/enums/image/image.dart';
-import 'package:social_app/products/models/post_model.dart';
 import 'package:social_app/products/utility/exceptions/firebase_exception.dart';
 import 'package:social_app/products/widgets/footer_card.dart';
+
+import '../../core/models/post_model.dart';
 
 class ImageCard extends StatelessWidget {
   const ImageCard({
