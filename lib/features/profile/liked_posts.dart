@@ -4,7 +4,7 @@ import 'package:kartal/kartal.dart';
 import 'package:social_app/products/constants/index.dart';
 import 'package:social_app/products/models/post_model.dart';
 
-import 'package:social_app/products/widgets/image_card.dart';
+import 'package:social_app/products/widgets/post_card.dart';
 
 class LikedPosts extends StatelessWidget {
   const LikedPosts({required this.posts, super.key});
@@ -27,7 +27,7 @@ class LikedPosts extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: context.paddingNormal,
-                        child: ImageCard(
+                        child: PostCard(
                           key: PageStorageKey(index),
                           post: snapshot.data?.docs.elementAt(index).data(),
                         ),

@@ -10,7 +10,7 @@ class ProjectAppBar extends AppBar {
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
-                .copyWith(fontWeight: FontWeight.w600),
+                .copyWith(fontWeight: FontWeight.w300),
           ),
           actions: [
             IconButton(

@@ -52,6 +52,7 @@ class PostCommentsView extends StatelessWidget {
             context: context,
             builder: (context) => AlertDialog(
               content: TextField(
+                maxLength: 240,
                 controller: _commentController,
               ),
               actions: [
@@ -61,8 +62,7 @@ class PostCommentsView extends StatelessWidget {
                       post!,
                       FirebaseAuth.instance.currentUser!,
                       _commentController.text,
-                    );
-                    Navigator.pop(context);
+                    ).whenComplete(() => Navigator.pop(context));
                   },
                   child: const Text(StringConstants.comment),
                 )

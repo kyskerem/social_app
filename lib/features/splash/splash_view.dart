@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
 import 'package:social_app/features/splash/splash_providers.dart';
 import 'package:social_app/products/constants/string_constants.dart';
+import 'package:social_app/products/enums/route_enum.dart';
 
 class SplashView extends ConsumerStatefulWidget {
   const SplashView({super.key});
@@ -59,9 +60,9 @@ mixin _SplashViewListenMixin on ConsumerState<SplashView> {
       }
       if (next.redirectHome != null) {
         if (next.redirectHome!) {
-          context.navigateName('Home');
+          Navigator.pushReplacementNamed(context, RouteEnum.home.route);
         } else {
-          context.navigateName('Home');
+          Navigator.pushReplacementNamed(context, RouteEnum.home.route);
         }
       }
     });
