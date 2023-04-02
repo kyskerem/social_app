@@ -17,6 +17,7 @@ class UploadView extends StatefulWidget {
 
 class _UploadViewState extends State<UploadView> {
   XFile? image;
+  bool isUploading = false;
   final User? user = FirebaseAuth.instance.currentUser;
   final _captionController = TextEditingController();
   Future<void> _pickImage() async {
@@ -82,26 +83,30 @@ class _UploadViewState extends State<UploadView> {
               ),
             ),
             ElevatedButton(
-              onPressed:
-                  (image != null && _captionController.text.trim().isNotEmpty)
-                      ? () async {
-                          await uploadPostToDatabase(
-                            Post(
-                              description: _captionController.text.trimLeft(),
-                              datePublished: DateTime.now(),
-                              postUrl: '',
-                              publisherName: user?.displayName ?? '',
-                              publisherProfileImage: user?.photoURL ?? '',
-                              publisherUid: user?.uid ?? '',
-                            ),
-                            image!,
-                          ).whenComplete(
-                            () => {
-                              context.pop(),
-                            },
-                          );
-                        }
-                      : null,
+              onPressed: (image != null &&
+                      _captionController.text.trim().isNotEmpty &&
+                      !isUploading)
+                  ? () async {
+                      setState(() {
+                        isUploading = true;
+                      });
+                      await uploadPostToDatabase(
+                        Post(
+                          description: _captionController.text.trimLeft(),
+                          datePublished: DateTime.now(),
+                          postUrl: '',
+                          publisherName: user?.displayName ?? '',
+                          publisherProfileImage: user?.photoURL ?? '',
+                          publisherUid: user?.uid ?? '',
+                        ),
+                        image!,
+                      ).whenComplete(
+                        () => {
+                          context.pop(),
+                        },
+                      );
+                    }
+                  : null,
               child: Padding(
                 padding: context.paddingNormal,
                 child: const Text(StringConstants.upload),
