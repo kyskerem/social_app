@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kartal/kartal.dart';
-import 'package:social_app/features/home/home_provider.dart';
 import 'package:social_app/features/post/upload/upload_post.dart';
 import 'package:social_app/products/constants/index.dart';
 import 'package:social_app/products/models/post_model.dart';
@@ -33,7 +32,6 @@ class _UploadViewState extends State<UploadView> {
     });
   }
 
-  final postProvider = HomeProvider();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,25 +82,26 @@ class _UploadViewState extends State<UploadView> {
               ),
             ),
             ElevatedButton(
-              onPressed: image != null && _captionController.text.isNotEmpty
-                  ? () async {
-                      await uploadPostToDatabase(
-                        Post(
-                          description: _captionController.text,
-                          datePublished: DateTime.now(),
-                          postUrl: '',
-                          publisherName: user?.displayName ?? '',
-                          publisherProfileImage: user?.photoURL ?? '',
-                          publisherUid: user?.uid ?? '',
-                        ),
-                        image!,
-                      ).whenComplete(
-                        () => {
-                          context.pop(),
-                        },
-                      );
-                    }
-                  : null,
+              onPressed:
+                  (image != null && _captionController.text.trim().isNotEmpty)
+                      ? () async {
+                          await uploadPostToDatabase(
+                            Post(
+                              description: _captionController.text.trimLeft(),
+                              datePublished: DateTime.now(),
+                              postUrl: '',
+                              publisherName: user?.displayName ?? '',
+                              publisherProfileImage: user?.photoURL ?? '',
+                              publisherUid: user?.uid ?? '',
+                            ),
+                            image!,
+                          ).whenComplete(
+                            () => {
+                              context.pop(),
+                            },
+                          );
+                        }
+                      : null,
               child: Padding(
                 padding: context.paddingNormal,
                 child: const Text(StringConstants.upload),

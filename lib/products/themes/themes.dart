@@ -3,7 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:social_app/products/constants/colors_contants.dart';
 
 abstract class ProjectTheme {
-  static ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
+  static ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.light,
+    fontFamily: 'Poppins',
     outlinedButtonTheme: const OutlinedButtonThemeData(
       style: ButtonStyle(
         padding: MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 15)),
@@ -35,9 +38,10 @@ abstract class ProjectTheme {
       ),
     ),
   );
-  static ThemeData darkTheme = ThemeData.dark(
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
     useMaterial3: true,
-  ).copyWith(
+    fontFamily: 'Poppins',
     outlinedButtonTheme: const OutlinedButtonThemeData(
       style: ButtonStyle(
         padding: MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 15)),
