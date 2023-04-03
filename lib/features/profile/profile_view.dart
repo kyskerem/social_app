@@ -26,10 +26,7 @@ class ProfileView extends ConsumerStatefulWidget {
 class _ProfileViewState extends ConsumerState<ProfileView>
     with TickerProviderStateMixin {
   late final TabController _tabController;
-  final profileProvider =
-      StateNotifierProvider<ProfileProvider, ProfileState>((ref) {
-    return ProfileProvider();
-  });
+  final profileProvider = ProfileProvider();
 
   late final Stream<QuerySnapshot<Post?>> likedPosts;
   late final Stream<QuerySnapshot<Post?>> uploadedPosts;
@@ -53,12 +50,12 @@ class _ProfileViewState extends ConsumerState<ProfileView>
     } else {
       throw const FbCustomException(error: StringConstants.userIsntCorrectType);
     }
-    likedPosts = ref.read(profileProvider.notifier).fetchLikedPosts(
-          uid,
-          photo,
-          userName,
-        );
-    uploadedPosts = ref.read(profileProvider.notifier).fetchUploadedPosts(uid);
+    likedPosts = profileProvider.fetchLikedPosts(
+      uid,
+      photo,
+      userName,
+    );
+    uploadedPosts = profileProvider.fetchUploadedPosts(uid);
   }
 
   @override
@@ -96,7 +93,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
                 controller: _tabController,
                 children: [
                   UploadedPosts(
-                    deletePost: ref.read(profileProvider.notifier).deletePost,
+                    deletePost: profileProvider.deletePost,
                     posts: uploadedPosts,
                   ),
                   LikedPosts(posts: likedPosts),

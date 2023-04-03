@@ -19,31 +19,38 @@ class ProfilePhoto extends StatelessWidget {
   late final String _profilePhotoUrl;
   late final String _profileUid;
   late final bool _redirect;
+  Future<void> goToProfile(BuildContext context) async {
+    await FirebaseColletions.Users.reference
+        .where(FirebaseProps.uid.name, isEqualTo: _profileUid)
+        .get()
+        .then(
+          (value) => context.navigateToPage(
+            ProfileView(user: value.docs.first.data()),
+          ),
+        );
+  }
+
+  Future<Dialog?> showProfilePicture(BuildContext context) {
+    return showDialog<Dialog>(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: InteractiveViewer(
+            child: Image.network(_profilePhotoUrl),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _redirect
           ? () async {
-              await FirebaseColletions.Users.reference
-                  .where(FirebaseProps.uid.name, isEqualTo: _profileUid)
-                  .get()
-                  .then(
-                    (value) => context.navigateToPage(
-                      ProfileView(user: value.docs.first.data()),
-                    ),
-                  );
+              await goToProfile(context);
             }
-          : () => showDialog<Dialog>(
-                context: context,
-                builder: (context) {
-                  return Dialog(
-                    child: InteractiveViewer(
-                      child: Image.network(_profilePhotoUrl),
-                    ),
-                  );
-                },
-              ),
+          : () => showProfilePicture(context),
       child: CircleAvatar(
         foregroundImage: NetworkImage(
           _profilePhotoUrl,

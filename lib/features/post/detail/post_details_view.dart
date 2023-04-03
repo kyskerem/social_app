@@ -7,7 +7,7 @@ import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/features/post/comment/post_comments_view.dart';
 import 'package:social_app/features/post/like/like_post.dart';
 import 'package:social_app/features/post/like/post_likes_view.dart';
-import 'package:social_app/products/enums/image/image.dart';
+import 'package:social_app/products/enums/icon.dart';
 
 class PostDetailView extends StatefulWidget {
   const PostDetailView({

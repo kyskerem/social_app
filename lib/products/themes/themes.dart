@@ -22,14 +22,14 @@ abstract class ProjectTheme {
     tabBarTheme: const TabBarTheme(
       indicatorColor: ColorConstants.monteCarlo,
       labelColor: ColorConstants.monteCarlo,
-      unselectedLabelColor: Colors.black,
+      unselectedLabelColor: ColorConstants.black,
       labelPadding: EdgeInsets.all(10),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorConstants.black,
     ),
     cardTheme: const CardTheme(
-      color: Colors.transparent,
+      color: ColorConstants.transparent,
     ),
     inputDecorationTheme: const InputDecorationTheme(
       outlineBorder: BorderSide(color: ColorConstants.gainsBoro, width: 2),
@@ -57,14 +57,14 @@ abstract class ProjectTheme {
     tabBarTheme: const TabBarTheme(
       indicatorColor: ColorConstants.monteCarlo,
       labelColor: ColorConstants.monteCarlo,
-      unselectedLabelColor: Colors.black,
+      unselectedLabelColor: ColorConstants.black,
       labelPadding: EdgeInsets.all(10),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorConstants.black,
     ),
     cardTheme: const CardTheme(
-      color: Colors.transparent,
+      color: ColorConstants.transparent,
     ),
     inputDecorationTheme: const InputDecorationTheme(
       outlineBorder: BorderSide(color: ColorConstants.gainsBoro, width: 2),

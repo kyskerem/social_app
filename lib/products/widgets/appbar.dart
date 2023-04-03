@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:social_app/products/constants/index.dart';
 
 class ProjectAppBar extends AppBar {
@@ -7,9 +8,7 @@ class ProjectAppBar extends AppBar {
       : super(
           title: Text(
             StringConstants.appName,
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
+            style: context.textTheme.headlineSmall!
                 .copyWith(fontWeight: FontWeight.w300),
           ),
           actions: [

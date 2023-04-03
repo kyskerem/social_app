@@ -1,16 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/products/enums/firebase_props_enum.dart';
 import 'package:social_app/products/utility/firebase/firebase_collections.dart';
 import 'package:social_app/products/utility/firebase/firebase_storages.dart';
 
-import 'package:social_app/core/models/post_model.dart';
-
-class ProfileProvider extends StateNotifier<ProfileState> {
-  ProfileProvider() : super(const ProfileState());
+class ProfileProvider {
+  ProfileProvider();
 
   Stream<QuerySnapshot<Post?>> fetchLikedPosts(
     String? uid,
@@ -65,9 +62,4 @@ class ProfileProvider extends StateNotifier<ProfileState> {
         .child(postId)
         .delete();
   }
-}
-
-@immutable
-class ProfileState {
-  const ProfileState();
 }

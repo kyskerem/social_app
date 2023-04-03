@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 @immutable
 class StringConstants {
   static const appName = 'Social';
-  static const noPost = 'No Posts Yet';
+  static const noPost = 'No posts yet';
   static const continueApp = 'Continue to app';
   static const logOut = 'Log Out';
   static const description = 'Description';
-  static const pickAnImage = 'Pick an Image';
-  static const upload = 'UPLOAD';
+  static const pickAnImage = 'Pick an image';
+  static const upload = 'Upload';
   static const hello = 'Hello';
-  static const error = 'error';
+  static const error = 'Error';
   static const comment = 'Comment';
   static const delete = 'Delete';
-  static const noConnection = 'No Connection';
-  static const noPosts = 'No Posts';
+  static const noConnection = 'No connection';
+  static const noPosts = 'No posts';
   static const noNullUser = 'User can not be null';
   static const noNullPost = 'Post can not be null';
   static const versionNotFound = 'Version not found';

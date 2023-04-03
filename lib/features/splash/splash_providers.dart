@@ -2,14 +2,12 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:social_app/core/models/number_model.dart';
 import 'package:social_app/products/constants/index.dart';
-
 import 'package:social_app/products/enums/platform_enum.dart';
 import 'package:social_app/products/utility/exceptions/firebase_exception.dart';
 import 'package:social_app/products/utility/firebase/firebase_collections.dart';
 import 'package:social_app/products/utility/version_manager.dart';
-
-import 'package:social_app/core/models/number_model.dart';
 
 class SplashProvider extends StateNotifier<SplashState> {
   SplashProvider() : super(const SplashState());

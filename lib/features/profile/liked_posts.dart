@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 import 'package:social_app/core/models/post_model.dart';
-import 'package:social_app/products/constants/index.dart';
-import 'package:social_app/products/widgets/post_card.dart';
+import 'package:social_app/products/widgets/post_streambuilder.dart';
 
 class LikedPosts extends StatelessWidget {
   const LikedPosts({required this.posts, super.key});
@@ -12,37 +10,9 @@ class LikedPosts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: StreamBuilder(
+        child: PostStreamBuilder(
           stream: posts,
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.none:
-                return const Text(StringConstants.noConnection);
-              case ConnectionState.waiting:
-              case ConnectionState.active:
-                if (snapshot.hasData) {
-                  return ListView.builder(
-                    itemCount: snapshot.data?.size,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: context.paddingNormal,
-                        child: PostCard(
-                          key: PageStorageKey(index),
-                          post: snapshot.data?.docs.elementAt(index).data(),
-                        ),
-                      );
-                    },
-                  );
-                }
-                if (snapshot.hasError) {
-                  return const Text(StringConstants.error);
-                } else {
-                  return const Text(StringConstants.noPosts);
-                }
-              case ConnectionState.done:
-                return const CircularProgressIndicator();
-            }
-          },
+          isImageCard: false,
         ),
       ),
     );

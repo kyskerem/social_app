@@ -1,2 +1,2 @@
-export 'image/image.dart';
+export 'icon.dart';
 export 'image/image_size.dart';

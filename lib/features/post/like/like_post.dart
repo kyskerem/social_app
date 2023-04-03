@@ -2,10 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:social_app/core/models/post_model.dart';
 import 'package:social_app/products/enums/firebase_props_enum.dart';
 import 'package:social_app/products/utility/firebase/firebase_collections.dart';
-
-import 'package:social_app/core/models/post_model.dart';
 
 Stream<QuerySnapshot<Object?>> getPost(Post post) {
   final dbPost = FirebaseColletions.Posts.reference
